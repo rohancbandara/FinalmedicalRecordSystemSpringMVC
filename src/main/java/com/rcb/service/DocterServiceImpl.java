@@ -3,11 +3,14 @@ package com.rcb.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.rcb.dao.DocterDAO;
 import com.rcb.model.Docter;
 
+@Service
+@Transactional
 public class DocterServiceImpl implements DocterService {
 
 	@Autowired

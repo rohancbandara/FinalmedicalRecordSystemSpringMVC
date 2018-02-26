@@ -96,8 +96,4 @@ public class Docter implements Serializable {
 		this.dIsDelete = dIsDelete;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 }

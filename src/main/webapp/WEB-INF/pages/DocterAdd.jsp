@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
 <head>
@@ -14,26 +18,35 @@
 
 
 <h3>Basic Info</h3>
-		 <label >Email </label>
-            <input name="txtEmail" type="text" id="txtEmail"  placeholder="Email" /><br>
-		 <label >First Name </label>
-            <input name="txtFname" type="text" id="txtFname"  placeholder="First Name" /><br>
-         <label >Last Name </label>
-            <input name="txtLname" type="text" id="txtLname"  placeholder="Last Name" /><br>
-         <label >Special </label>
-            <select name="special" id="special" >
-				<option value="0">-Select Special-</option>
-				
-			
-			</select><br>
-         
-          <button onclick="registerDocter()">Register</button>
-         <button onclick="clearFileds()">Clear</button>
 		 
 		 
-
-
-
+		 <form:form action="saveDocter" method="post" modelAttribute="docter">  
+        <table>
+            <form:hidden path="dId"/>
+            <tr>
+                <td>Email:</td>
+                <td><form:input path="dFname" id="txtEmail" /></td>
+            </tr>
+            <tr>
+                <td>First Name:</td>
+                <td><form:input path="dFname" id="txtFname" /></td>
+            </tr>
+            <tr>
+                <td>Last Name:</td>
+                <td><form:input path="dLname" id="txtLname"/></td>
+            </tr>
+            <tr>
+                <td>Special:</td>
+                <td><form:input path="dSpecile"  id="special"/></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit" value="Save" ></td> 
+               
+                
+                
+            </tr>
+        </table>
+         </form:form> 
 
 
 

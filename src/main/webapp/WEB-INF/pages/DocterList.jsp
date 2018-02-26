@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <html>
 <head>
@@ -8,43 +11,36 @@
 
 <h3>Welcome :${username }        <a href="login">logout</a></h3>
 
-
-
-	
-		<label>Patient:</label>
-		<input type="text" name="patient" id="patient">
-		<input type="submit" name="btnSearch" id="btnAddNewPatient" value="Add New Docter" >
-
+<div align="center">
+		<h1>Docter List</h1>
 		
-		<form:form action="#" method="post" modelAttribute="docter">  
-        <table>
-            <form:hidden path="id"/>
-            <tr>
-                <td>Name:</td>
-                <td><form:input path="name" id="txtName" /></td>
-            </tr>
-            <tr>
-                <td>Email:</td>
-                <td><form:input path="email" id="txtEmail" /></td>
-            </tr>
-            <tr>
-                <td>Address:</td>
-                <td><form:input path="address" id="txtAdd"/></td>
-            </tr>
-            <tr>
-                <td>Telephone:</td>
-                <td><form:input path="telephone"  id="txtTel"/></td>
-            </tr>
-            <tr>
-                <td colspan="2" align="center"><input type="submit" value="Save" ></td> 
-               
-                
-                <button onclick="clearFileds()">Clear</button>
-            </tr>
-        </table>
-         </form:form> 
+		<table border="1">
 
-	
+			<th>Name</th>
+			<th>Email</th>
+			<th>Address</th>
+			<th>Telephone</th>
+			<th>Action</th>
+
+			<c:forEach var="docter" items="${listDocter}">
+				<tr>
+
+					<td>${docter.dFname}</td>
+					<td>${docter.dEmail}</td>
+					<td>${docter.dDob}</td>
+					<td>${docter.dSpecile}</td>
+					<td><a href="editEmployee?id=${docter.id}">Edit</a>
+						&nbsp;&nbsp;&nbsp;&nbsp; <a
+						href="deleteEmployee?id=${docter.id}">Delete</a></td>
+
+				
+					</tr>
+			</c:forEach>
+		</table>
+		<h4>
+			New Employee Register <a href="newEmployee">here</a>
+		</h4>
+	</div>
 
 
 </body>
