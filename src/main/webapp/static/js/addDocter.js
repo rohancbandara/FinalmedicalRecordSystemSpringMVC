@@ -10,10 +10,10 @@ function docterRegister(d_id){
 
 function clearFileds(){
 
-	$('#txtName').val('');
+	$('#txtFname').val('');
 	$('#txtEmail').val('');
-	$('#txtAdd').val('');
-	$('#txtTel').val('');
+	$('#txtLname').val('');
+	
 	
 }
 

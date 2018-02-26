@@ -7,7 +7,7 @@
 <html>
 <head>
  <script src='static/js/jquery.js'></script>
-  <script  src="static/js/docterRegister.js"></script>
+  <script  src="static/js/addDocter.js"></script>
 	<title>Add Docter</title>
 </head>
 <body>
@@ -16,7 +16,7 @@
 
 
 
-
+<h2>Add Docter</h2>
 <h3>Basic Info</h3>
 		 
 		 
@@ -25,7 +25,7 @@
             <form:hidden path="dId"/>
             <tr>
                 <td>Email:</td>
-                <td><form:input path="dFname" id="txtEmail" /></td>
+                <td><form:input path="dEmail" id="txtEmail" /></td>
             </tr>
             <tr>
                 <td>First Name:</td>
@@ -37,13 +37,17 @@
             </tr>
             <tr>
                 <td>Special:</td>
-                <td><form:input path="dSpecile"  id="special"/></td>
+                <td>
+                <form:select path="dSpecile"  id="special" >
+				<option value="Special 1">-Special 1-</option>
+				<option value="Special 2">-Special 2-</option>
+				<option value="Special 3">-Special 3-</option>
+				<option value="Special 4">-Special 4-</option>
+			    </form:select></td>
             </tr>
             <tr>
-                <td colspan="2" align="center"><input type="submit" value="Save" ></td> 
-               
-                
-                
+                <td ><input type="submit"  value="Save" ></td> 
+                 
             </tr>
         </table>
          </form:form> 

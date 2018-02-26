@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,6 +16,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.rcb.model.Employee;
 import com.rcb.service.EmployeeService;
 
+@Controller
+@RequestMapping("employee")
 public class EmployeeController {
 
 	private static final Logger logger = Logger.getLogger(EmployeeController.class);
@@ -50,7 +53,7 @@ public class EmployeeController {
 		} else {
 			employeeService.updateEmployee(employee);
 		}
-		return new ModelAndView("redirect:/");
+		return new ModelAndView("redirect:/employee/");
 	}
 
 	@RequestMapping(value = "/deleteEmployee", method = RequestMethod.GET)

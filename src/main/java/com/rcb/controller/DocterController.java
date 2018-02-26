@@ -3,6 +3,8 @@ package com.rcb.controller;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +17,7 @@ import com.rcb.model.Docter;
 import com.rcb.service.DocterService;
 
 @Controller
+@RequestMapping("docter")
 public class DocterController {
 	private static final Logger logger = Logger.getLogger(EmployeeController.class);
 
@@ -44,14 +47,13 @@ public class DocterController {
 
 	@RequestMapping(value = "/saveDocter", method = RequestMethod.POST)
 	public ModelAndView saveDocter(@ModelAttribute Docter docter) {
-		if (docter.getdId() == 0) { // if employee id is 0 then creating the
-			// employee other updating the employee
+		if (docter.getdId() == 0) {
 
 			docterService.addDocter(docter);
 		} else {
 			docterService.updateDocter(docter);
 		}
-		return new ModelAndView("redirect:/newDocter");
+		return new ModelAndView("redirect:/docter/newDocter");
 	}
 
 	@RequestMapping(value = "/newDocter", method = RequestMethod.GET)
@@ -59,6 +61,23 @@ public class DocterController {
 		Docter docter = new Docter();
 		model.addObject("docter", docter);
 		model.setViewName("DocterAdd");
+		return model;
+	}
+
+	@RequestMapping(value = "/deleteDocter", method = RequestMethod.GET)
+	public ModelAndView deleteDocter(HttpServletRequest request) {
+		int docterId = Integer.parseInt(request.getParameter("id"));
+		docterService.deleteDocter(docterId);
+		return new ModelAndView("redirect:/docter/viewDocter");
+	}
+
+	@RequestMapping(value = "/editDocter", method = RequestMethod.GET)
+	public ModelAndView editDocter(HttpServletRequest request) {
+		int docterId = Integer.parseInt(request.getParameter("id"));
+		Docter docter = docterService.getDocter(docterId);
+		ModelAndView model = new ModelAndView("DocterAdd");
+		model.addObject("docter", docter);
+
 		return model;
 	}
 
